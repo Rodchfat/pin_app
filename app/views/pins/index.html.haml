@@ -6,6 +6,9 @@
   %p 
   = pin.description
   %br
+  %p Created By
+  %small= pin.user.email
+  %br
   %strong= link_to 'Show', pin
   |
   %strong= link_to 'Edit', edit_pin_path(pin)
