@@ -1,23 +1,17 @@
-%h1 Listing pins
-
-%table
-  %thead
-    %tr
-      %th Title
-      %th Description
-      %th
-      %th
-      %th
-
-  %tbody
-    - @pins.each do |pin|
-      %tr
-        %td= pin.title
-        %td= pin.description
-        %td= link_to 'Show', pin
-        %td= link_to 'Edit', edit_pin_path(pin)
-        %td= link_to 'Destroy', pin, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%h3 Listing pins
+- @pins.each do |pin|
+  %p 
+  %h4
+    = pin.title
+  %p 
+  = pin.description
+  %br
+  %strong= link_to 'Show', pin
+  |
+  %strong= link_to 'Edit', edit_pin_path(pin)
+  |
+  %strong= link_to 'Destroy', pin, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Pin', new_pin_path
+%h4= link_to 'New Pin', new_pin_path
