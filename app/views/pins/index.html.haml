@@ -1,20 +1,4 @@
-%h3 Listing pins
 - @pins.each do |pin|
-  %p 
-  %h4
-    = pin.title
-  %p 
-  = pin.description
-  %br
-  %small Created By
-  %strong= pin.user.email
-  %br
-  %strong= link_to 'Show', pin
-  |
-  %strong= link_to 'Edit', edit_pin_path(pin)
-  |
-  %strong= link_to 'Destroy', pin, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-%h4= link_to 'New Pin', new_pin_path
+  =link_to pin.title, pin
+  = image_tag pin.image.url(:medium)
+  
