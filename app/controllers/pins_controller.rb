@@ -1,20 +1,18 @@
 class PinsController < ApplicationController
-  before_action :set_pin, only: [:show, :edit, :update, :destroy]
+  before_action :set_pin, only: [:show, :edit, :update, :destroy, :like]
 
   # GET /pins
   # GET /pins.json
   def index
-    if current_user.blank?
+    
     @pins = Pin.all
-    else
-      @pins = current_user.pins
-      
-    end
+    
   end
 
   # GET /pins/1
   # GET /pins/1.json
   def show
+    
   end
 
   # GET /pins/new
@@ -65,6 +63,11 @@ class PinsController < ApplicationController
       format.html { redirect_to pins_url, notice: 'Pin was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+  
+  def like
+    @pin.liked_by current_user
+    redirect_to :back
   end
 
   private
